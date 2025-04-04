@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pearl Hotels</title>
+    <style>
+        /* Navigation Bar */
+        nav ul {
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+            background: #333;
+            padding: 15px;
+            margin: 0;
+        }
+
+        nav ul li {
+            position: relative;
+            padding: 10px 20px;
+        }
+
+        nav ul li a {
+            color: gold;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: blue;
+            list-style: none;
+            padding: 0;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-menu li {
+            padding: 10px 15px;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu li a {
+            color: skyblue;
+        }
+
+        /* Show Dropdown on Hover */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Fancy Welcome Message */
+        .welcome-message {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 24px;
+            color: purple;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Slideshow Styles */
+        .slideshow-container {
+            max-width: 800px;
+            position: relative;
+            margin: auto;
+        }
+
+        .slide {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo"><img src="" alt="logo"></div>
+        <div class="client">
+            <div class="pearl"><h2>Pearl Hotels</h2></div>
+            <div class="navigation">
+                <nav>
+                    <ul>
+                        <li class="dropdown">
+                            <a href="#">Our Services ▼</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">School of Cutlery</a></li>
+                                <li><a href="#">Outdoor Parties/Weddings</a></li>
+                                <li><a href="#">Conferences/Meetings</a></li>
+                                <li><a href="#">On-Board</a></li>
+                                <li><a href="#">Day/Walk-In</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#">Branches ▼</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Kitengela</a></li>
+                                <li><a href="#">Kisumu</a></li>
+                                <li><a href="#">Nairobi</a></li>
+                                <li><a href="#">Kericho</a></li>
+                                <li><a href="#">Malindi</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#">Suites & Rooms ▼</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Suite</a></li>
+                                <li><a href="#">En-Suite</a></li>
+                                <li><a href="#">Family Suite</a></li>
+                                <li><a href="#">Bachelor's Pad</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#">More ▼</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Resort Beach</a></li>
+                                <li><a href="#">Garden</a></li>
+                                <li><a href="#">Rooms</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#">Book Here ▼</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Buy Goods Till 2134567</a></li>
+                                <li><a href="#">Cooperative Bank Account 2222222223459076</a></li>
+                                <li><a href="#">Kenya Commercial Bank Account 34566778890654</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="welcome-message">
+        <p>Welcome to Pearl Hoteliers, where comfort meets luxury.</p>
+    </div>
+
+    <div class="slideshow-container">
+        <div class="slide fade">
+            <img src="/images/restuarant.jpg" alt="Image 1">
+        </div>
+        <div class="slide fade">
+            <img src="/images/service-1303313_1280.jpg" alt="Image 2">
+        </div>
+        <div class="slide fade">
+            <img src="/images/wooden-cutlery-.jpg" alt="Image 3">
+        </div>
+        <div class="slide fade">
+            <img src="/images/hotel-1831072_1280.jpg" alt="Image 4">
+        </div>
+
+        <!-- Next and Previous Buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }  
+            slides[slideIndex - 1].style.display = "block";  
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+
+        function plusSlides(n) {
+            slideIndex += n - 1;
+            showSlides();
+        }
+    </script>
+</body>
+</html>
+
+
